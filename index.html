@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Quotation</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .header {
+            text-align: center;
+            margin-bottom: 10px; /* Reduce the bottom margin */
+        }
+        .company-info h1 {
+            margin: 30; /* Remove margin from h1 */
+        }
+        .company-info p {
+            margin: 5px; /* Remove margin from p */
+        }
+        .button-container {
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .signature-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        textarea {
+            overflow: hidden;
+            resize: none;
+        }
+        .terms ol {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .totals {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .totals .warranty {
+            flex: 1;
+            text-align: left;
+        }
+        .totals .amounts {
+            flex: 1;
+            text-align: right;
+            border-style: solid;
+            border-color: black;
+            border-width: 0px 0px 0px 1.5px;
+        }
+        .dotted-line {
+            border-top: 1px dotted #000;
+            width: 100%;
+            margin: 10px 0;
+        }
+        .full-length-line {
+            border-top: 1px solid #000;
+            width: 100%;
+            margin: 10px 0;
+        }
+        .centered-footer {
+            text-align: center;
+            border-top: 1px solid #000;
+            padding-top: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-container">
+        <div class="header">
+            <div class="company-info">
+                <h1><img src="A&s logo.png" id="logo"> A&S ENGINEERING SERVICES</h1>
+                <p>ADD-WARD NO 12, SAHOKHAR, KHUTAR, POST -KHUTAR, WAIDHAN SINGRAULI (MP)</p>
+                <p>PIN CODE 486886</p>
+                <p>PH: 7974694107 Email: A&Sengineering.wn24@gmail.com</p>
+            </div>
+        </div>
+        <div class="quotation">
+            <h2 id="h2">QUOTATION</h2><hr id="quotation_bottum_line">
+            <div class="quotation-info">
+                <p>REF. NO.: EE/VJ/APRL-2024/01</p>
+                <p>WAIDHAN, MP</p>
+                <p>Date:<input id="date" type="date"></input></p>
+            </div>
+        </div>
+        <div class="customer-info">
+            <textarea id="customer-info" name="customer Details" placeholder="Enter your customer Details" required oninput="autoGrow(this)"></textarea><br>
+        </div>
+        <table class="quotation-table">
+            <thead>
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>Description</th>
+                    <th>HNC No.</th>
+                    <th id="qty">Qty.</th>
+                    <th id="unitPrice">Unit Price</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody id="quotation-body">
+                <tr>
+                    <td>1</td>
+                    <td contenteditable="true">VAJRA ROCK BREAKER HD+ WITH PIPELINE AND ALL ASSOSEEERASE.</td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true" oninput="calculateTotal()">1</td>
+                    <td contenteditable="true" oninput="calculateTotal()"></td>
+                    <td class="totalAmount">00000</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="button-container">
+            <button class="add-row-btn" onclick="addRow()">Add Row</button>
+            <button class="remove-row-btn" onclick="removeRow()">Remove Row</button>
+            <button class="print-btn" onclick="window.print()">Print</button>
+        </div>
+        <div class="totals">
+            <div class="warranty">
+                <p id="Warranty">WARRANTY: One Year only. Warranty claim will be made only on manufacturing default.</p>
+            </div>
+            <div class="amounts">
+                <p><pre id="sub">Sub Total:  <span id="subTotal">00</pre></span></p>
+                <p>CGST %: <input type="number" id="cgstRate" value="9" oninput="calculateTotal()" class="GST"> %</p>
+                <p>SGST %: <input type="number" id="sgstRate" value="9" oninput="calculateTotal()" class="GST"> %</p>
+                <hr id="grand_total"> 
+                <p>Grand Total: <strong>₹ <span id="grandTotal">000</span></strong></p>
+            </div>
+        </div>
+        <div class="signature-container">
+            <div class="signature">
+                <p>For; A&S ENGINEERING SERVICES</p>
+                <p>Stamp / Authorized Signatory</p>
+                <img id="singh" src="singh.png"></img>
+            </div>
+            <div id="gst_no">
+                <p>GST No : 23CXLPD3404M1ZL</p>
+                <p>PAN No : CXLPD3404M</p>
+            </div>
+        </div>
+        <hr id="footer_line">
+        <div class="footer">
+            <div class="terms">
+                <p>Terms & Conditions:</p>
+                <ol>
+                    <li>Taxes as stated, all other taxes and changes in tax structure by Government will be applicable at the time of billing.</li>
+                    <li>Freight & Insurance: From Waid, Nagpur, Maharashtra to the site, both to be borne by the customer.</li>
+                    <li>Delivery within 1-2 weeks from the date of receipt of DO, purchase order and full payment.</li>
+                    <li>Our offer is valid for 15 days from the date of mentioned above, however prices ruling at the time of delivery shall be applicable to you.</li>
+                    <li>100% Payment to be released prior to dispatch of equipment.</li>
+                    <li>Pan No. & GST No. is required at the time of placement of order as per Govt. Rules.</li>
+                    <li>Any dispute or claims out of this invoice will be subjected to the jurisdiction of court in Pune.</li>
+                </ol>
+           
+            </div>
+        </div>
+        <div class="centered-footer">
+           
+                <li id="list_point_eight">Payment to be made directly in Favour of<br> A&S ENGINEERING SERVICES UNION BANK OF INDIA,<br> ACCOUNT NUMBER: 452501010033664 BRANCH SANJAY NAGAR, SINGRAULI. IFSC: UBIN0545252</li>
+         
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function autoGrow(element) {
+            element.style.height = "5px";
+            element.style.height = (element.scrollHeight) + "px";
+        }
+    </script>
+</body>
+</html>
+

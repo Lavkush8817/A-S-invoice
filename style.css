@@ -1,0 +1,208 @@
+/** @format */
+
+Users/lavkushkumardubey/HTML TUTORIAL/invoice2/style.css */ body {
+  font-family: Arial, sans-serif;
+  margin: 0px;
+}
+
+.invoice-container {
+  border: 3px solid #000;
+  padding: 4px;
+  max-width: 800px;
+ 
+  margin: 0 auto;
+  position: relative;
+  background-color: antiquewhite;
+}
+h1{
+  color:rgb(13, 94, 186);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #000;
+  padding-bottom: 0px;
+  background-color: antiquewhite;
+  color:rgb(10, 10, 10);
+}
+
+#logo {
+  height: 27px;
+}
+
+.company-info {
+  text-align: center;
+  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.quotation {
+  text-align: center;
+  margin: 0px 0;
+  
+}
+
+.quotation-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0px;
+}
+
+.customer-info {
+  margin: 4px 0;
+}
+
+.quotation-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0px 0;
+}
+
+.quotation-table th,
+.quotation-table td {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: left;
+}
+
+.quotation-table input {
+  width: 100%;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.totals {
+  text-align: right;
+  margin: 20px 0;
+}
+
+.in-words {
+  margin: 0px 0;
+  font-weight: bold;
+}
+
+.signature {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0px;
+}
+
+.terms {
+  width: 70%;
+}
+
+#customer-info {
+  width: 100%;
+  margin-top: 0;
+  height: 70px;
+  border: transparent;
+  background-color: antiquewhite;
+}
+
+#date {
+  border: transparent;
+  background-color: antiquewhite;
+}
+
+#print-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#singh {
+  height: 50px;
+  width: 150px;
+}
+
+/* Additional CSS for smaller CGST and SGST input fields */
+.totals input[type="number"] {
+  width: 40px;
+
+  height: 20px;
+}
+
+@media print {
+  .print-btn,
+  .add-row-btn,
+  .remove-row-btn {
+    display: none;
+  }
+  .totals input[type="number"] {
+    border: none;
+
+    text-align: right;
+  }
+}
+.totals {
+  background-color: antiquewhite;
+  display: block;
+  border-style: solid;
+  border-color: #000;
+  border-radius: 1px;
+  border-width: 1px;
+}
+#grandtotal {
+  border-style: solid;
+  border-color: #000;
+}
+#footer_line {
+  border-style: solid;
+  border-color: #000;
+  margin-top: 0px;
+}
+.terms {
+  color: red;
+  background-color: transparent;
+}
+#list_point_eight {
+  color: black;
+  background-color: transparent;
+  font-weight: 700;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+
+
+#quotation_bottum_line{
+  border-width: 0.5px;
+  border-color: #2e2d2d;
+  margin-top: 0px;
+}
+#h2{
+color:rgb(13, 94, 186);
+}
+#grand_total{
+  border-style: dashed;
+}
+.GST{
+  background-color: antiquewhite;
+}
+#gst_no {
+ background-color: transparent;
+  margin-top: 0px;
+  margin-bottom: 50px;
+ 
+  display: inline-block;
+}
+#subTotal{
+  font-weight: 600;
+}
+#sub{
+  font-weight: 200;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
